@@ -1,12 +1,5 @@
 @import 'styles/colors.scss';
-.hasPopUp:hover::after {
-        content: attr(title);
-        position: absolute;
-        bottom: -100%;
-        left: 0;
-        background-color: aqua;
-      color: blue;
-}
+
 .header {
     position: sticky;
     background-color: white;
@@ -17,17 +10,18 @@
     z-index: 2;
     opacity: 0.95;
     &__content {
+        padding: 0 2% 0 2%;
+        white-space: nowrap;
         display: flex;
         justify-content: space-between;
         &__item {
             width: fit-content;
-            overflow: hidden;
             width: 50%;
             justify-content: center;
             > span {
                 line-height: 60px;
                 font-size: 18px;
-                margin: 0 10px 0 20px;
+                margin: 0 2% 0 5%;
                 vertical-align: middle;
                 color: $dark-grey;
                 display: inline;
@@ -46,7 +40,6 @@
                 > input {
                     box-shadow: inset 1px 0px 2px $border;
                     width: 100%;
-                    min-width: 200px;
                     border: 1px solid $border;
                     padding: 5px;
                     border-top-left-radius: 2px;
@@ -78,7 +71,7 @@
             img {
                 height: 35px;
                 border-radius: 50%;
-                margin-left: 20px;
+                margin-left: 5%;
                 vertical-align: middle;
             }
             .logo {
