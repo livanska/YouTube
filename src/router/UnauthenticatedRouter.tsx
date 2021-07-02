@@ -1,6 +1,7 @@
 import Home from '../pages/Home/Home'
 import { Switch, Route } from 'react-router-dom'
 import { HomeRoute, IRoute } from './routes'
+import { Layout } from '../components/layout/Layout';
 
 export const routes: IRoute[] = [
     {
@@ -10,9 +11,12 @@ export const routes: IRoute[] = [
     }]
 
 export const UnauthenticatedRouter = () => (
+    <Layout>
     <Switch>
+        
         {routes.map(route => {
             return <Route key={route.path} {...route} />;
         })}
     </Switch>
+    </Layout>
 );

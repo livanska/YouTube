@@ -1,0 +1,9 @@
+.page {
+    margin: 0;
+    display: flex;
+    &__content{
+        display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    }
+}

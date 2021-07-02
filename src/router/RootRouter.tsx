@@ -6,7 +6,7 @@ import { UnauthenticatedRouter, routes as unauthenticatedRoutes } from './Unauth
 //check if authenticated in future
 export const routes = unauthenticatedRoutes;
 export const RootRouter = () => (
-  <Layout>
+
     <Router><UnauthenticatedRouter/></Router>
-    </Layout>
+
   );

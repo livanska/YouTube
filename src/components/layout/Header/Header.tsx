@@ -1,12 +1,23 @@
 
 import css from './Header.module.scss';
 import Logo from '../../../assets/YouTube_logo.png';
-export const Header = () => {
+
+
+interface HeaderProps{
+    setIsOpenSidebar(value: boolean): void;
+}
+
+export const Header = ({setIsOpenSidebar}:HeaderProps) => {
+
     return (
         <div className='header'>
             <div className= {css.header__content}>
                 <div className={css.header__content__item}>
+
+                    <span className="fas fa-bars" onClick={()=>setIsOpenSidebar(true)}></span>
+
                     <span className="fas fa-bars"></span>
+
                     <img className={css.logo} src={Logo}/>
             </div>
                     <div className={css.header__content__item}>
