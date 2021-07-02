@@ -1,11 +1,14 @@
 import Header from "./Header/Header"
+
 import { Sidebar } from "./Sidebar/Sidebar"
 import css from './Layout.module.scss'
 import React, { ReactNode, useState } from "react"
 
+
 interface LayoutProps {
     children?: React.ReactNode;
 }
+
 export const Layout = ({children}:LayoutProps ) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
