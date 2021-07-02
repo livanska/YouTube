@@ -1,0 +1,144 @@
+@import 'styles/colors.scss';
+
+a {
+    text-decoration: none;
+    color: $dark-grey;
+}
+.sideBarColumn{
+    height: 100%;
+    width: 66px;
+    background-color: white;
+    z-index:999;
+    overflow-x: hidden;
+    position: fixed;
+    text-align: center;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    white-space: normal;
+    justify-content: center;
+    &__item {
+
+        &:hover {
+            background-color: $border;
+            cursor: pointer;
+        }
+        vertical-align: middle;
+        > span {
+            line-height: 50px;
+            font-size: 18px;
+            vertical-align: middle;
+            color: $dark-grey;
+            display: inline;
+        }
+        > span + span,
+        img + span {
+            margin-left: 15px;
+            font-size: 16px;
+        }
+        &__text {
+           
+            font-size: 10px;
+            margin-top: 0px;
+        
+        }
+        > img {
+            height: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0 0px 0 30px;
+        }
+    }
+    > span {
+        display: block;
+    }
+}
+.sideBar {
+    &.isOpen {
+          transform: cubic-bezier(0.1, 0.4, 1.0, 0.1);
+          width: 250px;
+          transition: 0.5s;
+          background-blend-mode: darken;
+          overflow-y: hidden;
+          &:hover {
+            overflow-y: scroll;
+        }
+        
+    }
+    &.isClosed{
+        transform: cubic-bezier(0.1, 0.4, 1.0, 0.1);
+          width: 0px;
+          transition: 0.5s;
+    }
+
+    height: 100%;
+    width: max-content;
+    background-color: white;
+    z-index:999;
+    overflow-x: hidden;
+    position: fixed;
+    white-space: nowrap;
+    top: 0px;
+    left: 0;
+    height: 100vh;
+    &__grid {
+       background-color: white;
+    z-index: 999;
+    //overflow-x: visible;
+      
+        display: flex;
+        flex-direction: column;
+        &__item {
+            .logo {
+                border-radius: 0;
+                height: 20px;
+            }
+            transition: 1s;
+            &:hover {
+                background-color: $border;
+                cursor: pointer;
+            }
+            vertical-align: middle;
+            white-space: nowrap;
+            > span {
+                line-height: 50px;
+                font-size: 18px;
+                margin: 0 0px 0 33px;
+                vertical-align: middle;
+                color: $dark-grey;
+                display: inline;
+            }
+            > span + span,
+            img + span {
+                margin-left: 15px;
+                font-size: 16px;
+            }
+            &__text {
+                word-break: keep-all;
+                font-size: 16px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            > img {
+                height: 30px;
+                border-radius: 50%;
+                vertical-align: middle;
+                margin: 0 0px 0 30px;
+            }
+        }
+        > hr {
+            width: 90%;
+            margin-left: 0;
+            border: 1px solid $border;
+            margin: 5px 0 5px;
+        }
+        &__title {
+            margin: 5px 0 5px;
+            font-size: 16px;
+            color: $main-text;
+            padding-left: 32px;
+            font-weight: bolder;
+        }
+    }
+}
