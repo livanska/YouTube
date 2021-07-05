@@ -1,16 +1,16 @@
 @import 'styles/colors.scss';
 
 .header {
-    position: sticky;
+    position: fixed;
     background-color: white;
-    padding: 0 50px 0 15px;
     height: 60px;
+    width:100vw;
     top: 0px;
     left: 0px;
     z-index: 2;
     opacity: 0.95;
     &__content {
-        padding: 0 2% 0 2%;
+        padding: 0 2% 0 13px;
         white-space: nowrap;
         display: flex;
         justify-content: space-between;
