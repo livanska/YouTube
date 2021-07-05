@@ -18,5 +18,6 @@ export const UnauthenticatedRouter = () => (
             return <Route key={route.path} {...route} />;
         })}
     </Switch>
-    </Layout>
+        </Layout>
+
 );
