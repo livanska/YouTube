@@ -14,7 +14,7 @@ export const Layout = ({children}:LayoutProps ) => {
     return (
         <div className={css.page}>
             
-            <Sidebar isOpen={isSidebarOpen}
+            <Sidebar className={css.sidebar} isOpen={isSidebarOpen}
                 setIsOpen={setIsSidebarOpen} />
                 <Header  setIsOpenSidebar={setIsSidebarOpen} />
             <main className={css.page__content}>{children}</main>
