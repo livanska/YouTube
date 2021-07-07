@@ -30,6 +30,8 @@ jobs:
         with:
           name: build
           path: build
+      - name: Print firebase token
+        run: echo 'env ${{ env.FIREBASE_TOKEN }}, secret ${{ secrets.FIREBASE_TOKEN }}'
       - name: Reauth firebase
         uses: w9jds/firebase-action@master
         with:
