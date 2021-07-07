@@ -70,7 +70,7 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
                 <React.Fragment >
                     <div className={css.sideBar__grid__item}>
                         <span className="fas fa-bars" onClick={() => {isOpen?setIsOpen(false):setIsOpen(true)}}></span>
-                        <img className={css.logo} src={Logo} />
+                        <img className={css.logo} alt='Logo' src={Logo} />
                     </div>
                     <Link to='_blank' >
                         <div className={css.sideBar__grid__item}>
