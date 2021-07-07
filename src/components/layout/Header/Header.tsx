@@ -14,7 +14,7 @@ export const Header = ({ setIsOpenSidebar }: HeaderProps) => {
             <div className={css.header__content}>
                 <div className={css.header__content__item}>
                     <span className="fas fa-bars" onClick={() => setIsOpenSidebar(true)}></span>
-                    <img className={css.logo} src={Logo} />
+                    <img alt='Logo' className={css.logo} src={Logo} />
                 </div>
                 <div className={css.header__content__item}>
                     <div className={css.header__content__item__search}>
@@ -29,7 +29,7 @@ export const Header = ({ setIsOpenSidebar }: HeaderProps) => {
                     <span className="fas fa-video"></span>
                     <span className="fas fa-th"></span>
                     <span className="fas fa-bell"></span>
-                    <img
+                    <img  alt='Avatar'
                         src='https://yt3.ggpht.com/ytc/AAUvwniNcj7dsdmooO6x7NoI01OQRlM1Rk9PqYue1LN7=s68-c-k-c0x00ffffff-no-rj' />
                 </div>
             </div>

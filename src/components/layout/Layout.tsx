@@ -2,7 +2,7 @@ import Header from "./Header/Header"
 
 import { Sidebar } from "./Sidebar/Sidebar"
 import css from './Layout.module.scss'
-import React, { ReactNode, useState } from "react"
+import React, { useState } from "react"
 
 
 interface LayoutProps {

@@ -23,7 +23,7 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
         return () => {
             window.removeEventListener('click', closeSidebar);
         };
-    }, [isOpen]);
+    }, [isOpen, setIsOpen]);
 
     return (
         <React.Fragment>
@@ -118,27 +118,27 @@ export const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
                     <hr />
                     <span className={css.sideBar__grid__title}>ПІДПИСКИ</span>
                     <div className={css.sideBar__grid__item}>
-                        <img
+                        <img alt='Avatar'
                             src='https://yt3.ggpht.com/ytc/AAUvwniNcj7dsdmooO6x7NoI01OQRlM1Rk9PqYue1LN7=s68-c-k-c0x00ffffff-no-rj' />
                         <span className={css.sideBar__grid__item__text}> Nicholas T.</span>
                     </div>
                     <div className={css.sideBar__grid__item}>
-                        <img
+                        <img alt='Avatar'
                             src='https://yt3.ggpht.com/ytc/AAUvwniNcj7dsdmooO6x7NoI01OQRlM1Rk9PqYue1LN7=s68-c-k-c0x00ffffff-no-rj' />
                         <span className={css.sideBar__grid__item__text}> Nicholas T.</span>
                     </div>
                     <div className={css.sideBar__grid__item}>
-                        <img
+                        <img alt='Avatar'
                             src='https://yt3.ggpht.com/ytc/AAUvwniNcj7dsdmooO6x7NoI01OQRlM1Rk9PqYue1LN7=s68-c-k-c0x00ffffff-no-rj' />
                         <span className={css.sideBar__grid__item__text}> Nicholas T.</span>
                     </div>
                     <div className={css.sideBar__grid__item}>
-                        <img
+                        <img alt='Avatar'
                             src='https://yt3.ggpht.com/ytc/AAUvwniNcj7dsdmooO6x7NoI01OQRlM1Rk9PqYue1LN7=s68-c-k-c0x00ffffff-no-rj' />
                         <span className={css.sideBar__grid__item__text}> Nicholas T.</span>
                     </div>
                     <div className={css.sideBar__grid__item}>
-                        <img
+                        <img alt='Avatar'
                             src='https://yt3.ggpht.com/ytc/AAUvwniNcj7dsdmooO6x7NoI01OQRlM1Rk9PqYue1LN7=s68-c-k-c0x00ffffff-no-rj' />
                         <span className={css.sideBar__grid__item__text}> Nicholas T.</span>
                     </div></React.Fragment >
