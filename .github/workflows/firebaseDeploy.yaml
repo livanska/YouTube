@@ -30,8 +30,10 @@ jobs:
         with:
           name: build
           path: build
-      - name: Reauth
-        run: firebase login --reauth 
+      - name: Reauth firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: login --reauth
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
