@@ -33,7 +33,7 @@ jobs:
       - name: Reauth firebase
         uses: w9jds/firebase-action@master
         with:
-          args: login --reauth
+          args: login:ci --interactive --reauth
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Deploy to Firebase
