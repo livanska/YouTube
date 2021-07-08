@@ -2,7 +2,7 @@
 import css from './Header.module.scss';
 import Logo from '../../../assets/YouTube_logo.png';
 import { ReactElement, useEffect, useState } from 'react';
-import { API_KEY, CLIENT_ID, DISCOVERY_URL, SCOPES } from '../../../constants'
+import { CLIENT_ID, DISCOVERY_URL, SCOPES } from '../../../constants'
 import React from 'react';
 
 var GoogleAuth: gapi.auth2.GoogleAuth;
@@ -26,7 +26,7 @@ export const Header = ({ setIsOpenSidebar }: HeaderProps) => {
     const initClient = () => {
         window.gapi.client.load('youtube', 'v3', () => {
             gapi.client.init({
-                'apiKey': API_KEY,
+                'apiKey': `${process.env.REACT_APP_API_KEY}` ,
                 'clientId': CLIENT_ID,
                 'scope': SCOPES,
                 'discoveryDocs': DISCOVERY_URL
