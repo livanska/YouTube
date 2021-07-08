@@ -42,8 +42,7 @@ export const Header = ({ setIsOpenSidebar }: HeaderProps) => {
     }
     async function handleLogOut() {
         
-        await GoogleAuth.signOut().then(function () {
-        });
+        await GoogleAuth.signOut()
         !GoogleAuth.currentUser.get().isSignedIn() && setSignedIn(false)
         window.location.reload();
     }
