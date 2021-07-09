@@ -1,109 +1,120 @@
-@import 'styles/colors.scss';
+@import "styles/colors.scss";
 
 a {
     text-decoration: none;
     color: $dark-grey;
 }
-.sideBarColumn{
+.sideBar {
+    transition: 0.1s;
     height: 100%;
-    width: 70px;
     background-color: white;
-    z-index:999;
-    overflow-x: hidden;
-    position: fixed;
-    text-align: center;
+    position: sticky;
     top: 60px;
     left: 0;
-    height: 100vh;
-    white-space: normal;
-    justify-content: center;
-    &__item {
 
-        &:hover {
-            background-color: $border;
-            cursor: pointer;
-        }
-        vertical-align: middle;
-        > span {
-            line-height: 50px;
-            font-size: 18px;
-            vertical-align: middle;
-            color: $dark-grey;
-            display: inline;
-        }
-        > span + span,
-        img + span {
-            margin-left: 15px;
-            font-size: 16px;
-        }
-        &__text {
-           
-            font-size: 10px;
-            margin-top: 0px;
-        
-        }
-        > img {
-            height: 30px;
-            border-radius: 50%;
-            vertical-align: middle;
-            margin: 0 0px 0 30px;
-        }
-    }
-    > span {
-        display: block;
-    }
-}
-.sideBar {
     &.isOpen {
-          transform: cubic-bezier(0.1, 0.4, 1.0, 0.1);
-          width: 250px;
-          transition: 0.5s;
-          background-blend-mode: darken;
-          overflow-y: hidden;
-          &:hover {
+        width: 150px;
+        height: 100%;
+        width: max-content;
+        background-color: white;
+        overflow-x: hidden;
+        white-space: nowrap;
+        top: 60px;
+        left: 0;
+        height: 100vh;
+        .sideBar__grid {
+            background-color: white;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            .sideBar__grid__item {
+                .logo {
+                    border-radius: 0;
+                    height: 20px;
+                }
+                transition: 1s;
+                &:hover {
+                    background-color: $border;
+                    cursor: pointer;
+                }
+                vertical-align: middle;
+                white-space: nowrap;
+                > span {
+                    line-height: 50px;
+                    font-size: 18px;
+                    margin: 0 0px 0 25px;
+                    vertical-align: middle;
+                    color: $dark-grey;
+                    display: inline;
+                }
+                > span + span,
+                img + span {
+                    margin-left: 15px;
+                    font-size: 16px;
+                }
+                .sideBar__grid__item__text {
+                    word-break: keep-all;
+                    font-size: 16px;
+                    display: inline;
+                    overflow: hidden;
+                    margin-left: 15px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                > img {
+                    height: 30px;
+                    border-radius: 50%;
+                    vertical-align: middle;
+                    margin: 0 0px 0 25px;
+                }
+            }
+            > hr {
+                width: 90%;
+                margin-left: 0;
+                border: 1px solid $border;
+                margin: 5px 0 5px;
+            }
+            &__title {
+                margin: 5px 0 5px;
+                font-size: 16px;
+                color: $main-text;
+                padding-left: 32px;
+                font-weight: bolder;
+            }
+        }
+        transform: cubic-bezier(0.1, 0.4, 1, 0.1);
+        width: 300px;
+        transition: 0.1s;
+        background-blend-mode: darken;
+        overflow-y: hidden;
+        &:hover {
             overflow-y: scroll;
         }
-        
     }
-    &.isClosed{
-        transform: cubic-bezier(0.1, 0.4, 1.0, 0.1);
-          width: 0px;
-          transition: 0.5s;
-    }
-
-    height: 100%;
-    width: max-content;
-    background-color: white;
-    z-index:999;
-    overflow-x: hidden;
-    position: fixed;
-    white-space: nowrap;
-    top: 0px;
-    left: 0;
-    height: 100vh;
-    &__grid {
-       background-color: white;
-    z-index: 999;
-    //overflow-x: visible;
-      
-        display: flex;
-        flex-direction: column;
-        &__item {
-            .logo {
-                border-radius: 0;
-                height: 20px;
-            }
-            transition: 1s;
+    &.isClosed {
+        transform: cubic-bezier(0.1, 0.4, 1, 0.1);
+        transition: 0.5s;
+        height: 100%;
+        width: 77px;
+        background-color: white;
+        z-index: 999;
+        overflow-x: hidden;
+        text-align: center;
+        top: 60px;
+        left: 0;
+        height: 100vh;
+        white-space: normal;
+        justify-content: center;
+        .sideBar__grid {
+            .sideBar__grid__item {
             &:hover {
                 background-color: $border;
                 cursor: pointer;
             }
             vertical-align: middle;
-            white-space: nowrap;
             > span {
                 line-height: 50px;
                 font-size: 18px;
-                margin: 0 0px 0 33px;
                 vertical-align: middle;
                 color: $dark-grey;
                 display: inline;
@@ -113,12 +124,9 @@ a {
                 margin-left: 15px;
                 font-size: 16px;
             }
-            &__text {
-                word-break: keep-all;
-                font-size: 16px;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+            .sideBar__grid__item__text {
+                font-size: 10px;
+                margin-top: 0px;
             }
             > img {
                 height: 30px;
@@ -127,18 +135,11 @@ a {
                 margin: 0 0px 0 30px;
             }
         }
-        > hr {
-            width: 90%;
-            margin-left: 0;
-            border: 1px solid $border;
-            margin: 5px 0 5px;
-        }
-        &__title {
-            margin: 5px 0 5px;
-            font-size: 16px;
-            color: $main-text;
-            padding-left: 32px;
-            font-weight: bolder;
+        > span {
+            display: block;
         }
     }
+}
+
+ 
 }
