@@ -1,49 +1,32 @@
 
 import css from './Header.module.scss';
 import Logo from '../../../assets/YouTube_logo.png';
-import { ReactElement, useEffect, useState } from 'react';
-import { CLIENT_ID, DISCOVERY_URL, SCOPES } from '../../../constants'
+import { useEffect, useState } from 'react';
 import React from 'react';
+import { AuthHelper } from '../../../api/auth/authHelper'
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelector } from '../../../state/selectors/authSelector';
 
-var GoogleAuth: gapi.auth2.GoogleAuth;
+const auth = new AuthHelper();
 interface HeaderProps {
     setIsOpenSidebar(value: boolean): void;
 }
 
 export const Header = ({ setIsOpenSidebar }: HeaderProps) => {
+    const dispatch = useDispatch();
+    const user = useSelector(authSelector);
 
-    const [signedIn, setSignedIn] = useState(false)
-    const [user,setUser] = useState<gapi.auth2.BasicProfile>()
     useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://apis.google.com/js/client.js";
-        script.onload = () => {
-            gapi.load('client:auth2', () => { initClient() });
-        };
-        document.body.appendChild(script);
+        auth.initClient();
     }, [])
 
-    const initClient = () => {
-        window.gapi.client.load('youtube', 'v3', () => {
-            gapi.client.init({
-                'apiKey': `${process.env.REACT_APP_API_KEY}` ,
-                'clientId': CLIENT_ID,
-                'scope': SCOPES,
-                'discoveryDocs': DISCOVERY_URL
-            })
-        });
-
-    }
     async function handleLogIn() {
-        GoogleAuth = gapi.auth2.getAuthInstance();
-        await GoogleAuth.signIn();
-        GoogleAuth.isSignedIn && setSignedIn(true)
-        setUser(GoogleAuth.currentUser.get().getBasicProfile())
+
+        dispatch(await auth.handleLogin());
     }
     async function handleLogOut() {
-        
-        await GoogleAuth.signOut()
-        !GoogleAuth.currentUser.get().isSignedIn() && setSignedIn(false)
+
+        dispatch(await auth.handleLogOut());
         window.location.reload();
     }
 
@@ -67,12 +50,14 @@ export const Header = ({ setIsOpenSidebar }: HeaderProps) => {
                     <span className="fas fa-video"></span>
                     <span className="fas fa-th"></span>
                     <span className="fas fa-bell"></span>
-                    {user ? <React.Fragment><img alt='Avatar'
-                        src={user.getImageUrl()} />
-                    <button onClick={handleLogOut}>LogOut</button></React.Fragment>
-                    :<button onClick={handleLogIn}>LogIn</button>
-                   }
-                    </div>
+                    {user.isLoggedIn ?
+                        <React.Fragment><img alt='Avatar'
+                            src={user.img} />
+                            <button onClick={handleLogOut}>LogOut</button>
+                        </React.Fragment>
+                        : <button onClick={handleLogIn}>LogIn</button>
+                    }
+                </div>
             </div>
         </div>
     )
