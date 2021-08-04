@@ -1,6 +1,6 @@
 import css from "./Header.module.scss";
 import Logo from "../../../assets/YouTube_logo.png";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import React from "react";
 import { AuthHelper } from "../../../api/auth/authHelper";
 import { useDispatch, useSelector } from "react-redux";
