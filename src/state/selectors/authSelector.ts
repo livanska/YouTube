@@ -1,3 +1,3 @@
-import { AppState } from '../store';
+import { AppState } from "../store";
 
 export const authSelector = (state: AppState) => state.user;
